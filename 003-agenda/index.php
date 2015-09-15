@@ -1,24 +1,29 @@
 <?php include './inc/connect.php'; ?>
 <?php 
     $msg="";
+    echo $_GET['cod'];
     if($_GET){
-        switch($_GET['c']){
+        switch($_GET['cod']){
             case 1:
                 $msg = "Contacto guardado correctamente";
-                $cls = $_GET['c'];
+                $cls = $_GET['cod'];
                 break;
             case 2:
                 $msg = "Error al guardar al contacto";
-                $cls = $_GET['c'];
+                $cls = $_GET['cod'];
                 break;
-            default: 
             case 3:
                 $msg = "Datos ya registrados en contactos";
-                $cls = $_GET['c'];
+                $cls = $_GET['cod'];
                 break;
-            default: 
+            case 4:
                 $msg = "Introduzca todos los valores necesarios";
-                $cls = $_GET['c'];
+                $cls = $_GET['cod'];
+                break;
+           
+            default: 
+                $msg = "Error al editar el contacto";
+                $cls = $_GET['cod'];
                 break;
         }
         
@@ -41,6 +46,9 @@
             <input type="email" name="email" placeholder="Email">            
             <input type="text" name="foto" placeholder="Foto">     
             <input type="submit" value="Guardar">
+            <select>
+                
+            </select>
         </form>
      
         <hr>
@@ -48,6 +56,7 @@
 
         <?php
         //Petición
+        echo $_GET['c'];
         $sql = "SELECT * FROM contactos ORDER BY nombre ASC";
 
         //Resultado
@@ -64,6 +73,8 @@
                 <div>
                     <p><?=$contactos[$i]['nombre']?> <span><?=$contactos[$i]['telefono']?> | <?=$contactos[$i]['email']?></span></p>
                 </div>
+                <a onclick="if(!confirm('¿Seguro que desea eliminar <?=$contactos[$i]['nombre']?> de sus contactos?') return false)" href="editar.php?editContact=<?=$contactos[$i]['id']?>">Editar</a> | 
+                <a onclick="if(!confirm('¿Seguro que desea eliminar <?=$contactos[$i]['nombre']?> de sus contactos?') return false)" href="inc/delete.php?deleteContact=<?=$contactos[$i]['id']?>">Eliminar</a>
             </div>
             <?php
                } 
