@@ -12,7 +12,7 @@ if ((isset($_POST['nombre']) && !empty($_POST['nombre'])) && (isset($_POST['tlfn
     if(mysqli_num_rows( $result_nomb_tlf) == 0){
         //Insertamos el contacto con una sentencia SQL
        
-        $sql = "INSERT INTO contactos (nombre, apellidos, telefono, email, foto) VALUES ('$nombre','$apellidos','$tlfn','$email','$foto')";
+        $sql = "INSERT INTO contactos (nombre, apellidos, telefono, email, foto, id_categoria) VALUES ('$nombre','$apellidos','$tlfn','$email','$foto','$idCategoria')";
         $result = mysqli_query($link, $sql); //Con esta sentencia 
         if ($result) {
             $c = 1;

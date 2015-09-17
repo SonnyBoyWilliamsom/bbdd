@@ -6,7 +6,7 @@ $msg = "";
 echo $_GET['cod'];
 if (isset($_GET['editContact'])) {
     extract($_GET);
-    $sql = "SELECT * FROM contactos WHERE id=" . $_GET['editContact'];
+    $sql = "SELECT * FROM contactos WHERE id=".$_GET['editContact'];
     $result = mysqli_query($link, $sql);
     $contacto = mysqli_fetch_array($result);
     if(isset($_GET['cod'])) {
@@ -37,6 +37,8 @@ if (isset($_GET['editContact'])) {
                 break;
         }
     }
+}else{
+    header('location:index.php');
 }
 ?>
 <html>
@@ -54,7 +56,26 @@ if (isset($_GET['editContact'])) {
             <input type="text" name="tlfn" value="<?= $contacto['telefono'] ?>" placeholder="Teléfono" required><br>            
             <input type="email" name="email" value="<?= $contacto['email'] ?>" placeholder="Email"><br>            
             <input type="text" name="foto" value="<?= $contacto['foto'] ?>" placeholder="Foto"><br>     
-            <input type="hidden" name="id" value="<?= $contacto['id'] ?>" placeholder="Foto"><br>     
+            <input type="hidden" name="id" value="<?= $contacto['id'] ?>" ><br>  
+             <select name="idCategoria">
+                <option value="0">Sin categoria</option>
+                <?php
+                $sql = "select * from categorias";
+                $result = mysqli_query($link, $sql);
+                $nfilas = mysqli_num_rows($result);
+                if($nfilas > 0){
+                for ($i = 0; $i < $nfilas; $i++) {
+                    $categorias[$i] = mysqli_fetch_array($result);?>
+                <option value="<?=$categorias[$i]['id']?>"><?= $categorias[$i]['categoria'] ?></option>
+
+                <?php }
+                }else{ ?>
+                    <option value="0">No hay categorias</option>
+                <?php }
+                ?>
+
+
+            </select> 
             <input type="submit" value="Guardar"><br>
         </form>
         <a href="index.php">GO BACK</a>
