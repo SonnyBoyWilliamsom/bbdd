@@ -56,6 +56,7 @@ if(isset($_GET["c"])){
                 $result=mysqli_query($link, $sql);
                 $nfilas=  mysqli_num_rows($result);
                 if($nfilas>0){?>
+                    <option value="0">Sin categoría</option>
                     <?php for($i=0;$i<$nfilas;$i++){ ?>
                         <?php $fila=  mysqli_fetch_array($result) ?>
                         <option value="<?=$fila['id']?>">
@@ -76,7 +77,11 @@ if(isset($_GET["c"])){
         <h1>Contactos</h1>
         <?php
         //3-Petición Contactos
-        $sql="select * from contactos order by nombre asc";
+        $letra ="";
+        if(isset($_GET['letra']) && !empty($_GET['letra'])){
+             $letra = $_GET['letra'];
+        }
+        $sql="select contactos.* ,categorias.categoria from contactos left join categorias on contactos.id_categoria=categorias.id where contactos.nombre like '$letra%'  order by nombre asc";
         $result = mysqli_query($link, $sql);
         //4-Obtener y procesar resultados
         $nfilas = mysqli_num_rows($result);
@@ -95,11 +100,31 @@ if(isset($_GET["c"])){
                             <br>
                             <?=$fila["telefono"]?> | <?=$fila["email"]?>
                             <br>
+                            <?php if($fila["id_categoria"]==0){ ?>
+                                <span>Sin categoría</span>
+                            <?php }else{ ?>
+                                <?=$fila["categoria"]?>
+                            <?php } ?>
+                            <br>
                             <a href="editar.php?id=<?=$fila['id']?>">Editar</a> | 
                             <a onclick="if(!confirm('¿?'))return false" href="delete.php?id=<?=$fila['id']?>">Eliminar</a>
                         </p>      
                     </article>
                 <?php } ?>
+                    <!--PAGINACIÓN SI HAY CONTACTOS - Dentro del if($nfilas>0)-->
+                    <div id="pag">
+                        <?php 
+                            $sql = 'SELECT DISTINCT SUBSTRING(nombre,1,1) AS letra FROM contactos ORDER BY nombre ASC'; // nombre: campo de la tabla contactos
+                            $result = mysqli_query($link, $sql);
+                            $nfilas = mysqli_num_rows($result);
+                            for($i=0;$i<$nfilas;$i++){
+                                $fila=mysqli_fetch_array($result); ?>
+                        <a href="index.php?letra=<?=$fila['letra']?>"><?=  strtoupper($fila['letra'])?></a>
+                        <?php  }
+                        
+                        ?>
+                        <a href="index.php">Todos los contactos</a>
+                    </div>
             
             <?php }else{ ?>
                 <p>No hay contactos</p>

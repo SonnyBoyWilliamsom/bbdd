@@ -1,0 +1,73 @@
+/*GLOBALES
+===============================*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+}
+body{
+    font: 1em/1.5 sans-serif;
+    background: #ededed;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color:#E60082;
+    font-size: .7em;
+}
+a.active{
+    font-weight: bold;
+    color:#333;
+}
+a:hover{
+    text-decoration: underline;
+}
+input:focus{
+    outline: none;
+    border: 1px solid #fbafe3;
+}
+
+/*LOGIN
+=======================*/
+.login {
+    width: 300px;
+    background: #fff;
+    padding: 20px;
+    overflow: hidden;
+    margin: 10% auto 20px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,.1);
+}
+.login h1{
+    text-align: center;
+    letter-spacing: -3px;
+    color:#666;
+}
+.login input{
+    width: 100%;
+    padding: 8px;
+    margin-top: 20px;
+    border:1px solid #ddd;
+    background: #ededed;
+}
+
+.login input[type="submit"]{
+    background: #E60082;
+    color:#fff;
+    border:none;
+    width: 30%;
+    float: right;
+}
+.login input[type="submit"]:hover{
+    cursor: pointer;
+    background:#ff5bb0;
+}
+
+.login a{
+    clear: both;
+    display: block;
+}

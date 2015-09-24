@@ -1,7 +1,7 @@
 <?php
 include './inc/connect.php';
 
-extract($_REQUEST); //$nombre,$apellidos,$tlfn,$email,$foto,$id
+extract($_REQUEST); //$nombre,$apellidos,$tlfn,$email,$foto,$id_categoria,$id
 
 if( (isset($nombre)&&!empty($nombre)) && (isset($tlfn)&&!empty($tlfn))){
     
@@ -17,7 +17,7 @@ if( (isset($nombre)&&!empty($nombre)) && (isset($tlfn)&&!empty($tlfn))){
         header("location:editar.php?id=$id&c=2");
     }else{
         
-        $sql="update contactos set nombre='$nombre',apellidos='$apellidos',telefono='$tlfn',email='$email',foto='$foto' where id=$id";
+        $sql="update contactos set nombre='$nombre',apellidos='$apellidos',telefono='$tlfn',email='$email',foto='$foto',id_categoria=$id_categoria where id=$id";
         $result=mysqli_query($link, $sql);
         if($result){
             $c=7;
