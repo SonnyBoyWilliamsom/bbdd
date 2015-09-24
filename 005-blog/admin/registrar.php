@@ -1,6 +1,6 @@
 <?php
 $msg = "";
-if(isset($_POST['login']) && !empty($_POST['login'])){
+if(isset($_POST['create']) && !empty($_POST['create'])){
     if((isset($_POST['email']) && !empty($_POST['email']))&& (isset($_POST['password']) && !empty($_POST['password'])) && (isset($_POST['nombre']) && !empty($_POST['nombre']))){
         include './inc/connect.php';
         extract($_POST);
@@ -17,7 +17,7 @@ if(isset($_POST['login']) && !empty($_POST['login'])){
             if($result){
                 $msg = "Login realizado con éxito";
                 $header = "To: $nombre <$email>"."\r\n";
-                $header .= "From: $admin <no-reply@blog.com>"."\r\n";
+                $header .= "From: Admin <no-reply@blog.com>"."\r\n";
                 $header .= "MIME-Version: 1.0\r\n";
                 $header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
                 $subject = "Alta de Usuario";
@@ -35,9 +35,10 @@ if(isset($_POST['login']) && !empty($_POST['login'])){
         $msg = "Por favor introduzca todos los datos";
         $class = "errorLogin";
     }
-}
+} 
+
 ?>
-?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,15 +53,15 @@ if(isset($_POST['login']) && !empty($_POST['login'])){
         ?>
         <!--    FORMULARIO   -->
         
-        <form action="<?=$_SERVER['PHP_SELF']?>">
+        <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
             <h1>New user</h1>
             <input type="text" name="nombre" placeholder="Name" required autofocus="">
             <input type="email" name="email" placeholder="user@example.com" required autofocus="">
             <input type="pass" name="password" placeholder="********" required>
-            <input type="submit" value="Create Account">
+            <input type="submit" value="Create Account" name="create">
             
             <a href="index.php">Ya soy usuario</a>
         </form>
-        <span class="msg">ERROR</span>
+        <p><?=$msg?></p>
     </body>
 </html>

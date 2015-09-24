@@ -71,3 +71,67 @@ input:focus{
     clear: both;
     display: block;
 }
+
+
+
+
+
+ header .menu ul li a{
+     display: inline-block;
+     font-size: 18px;
+     color: white;
+     padding: 0px 20px;
+ }
+  header{
+     background: teal;
+     overflow: hidden;
+     line-height: 40px;
+   
+ }
+ .content{
+      width: 960px;
+      margin: 0 auto;
+ }
+ main .content{
+      min-height: 800px;
+      box-shadow: 0px 0px 5px #333;
+      padding: 20px;
+      margin-bottom: 10px;
+ }
+  header .logo{
+     width:30%;
+     float:left;
+ }
+  header .menu{
+     width: 70%;
+     float: right;
+ }
+ header .menu ul li{
+     display: inline-block;
+ }
+ nav{
+     float:right;
+ }
+ footer{
+     background: teal;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+ }
+ 
+ /*Perfil*/
+ main{
+     overflow: hidden;
+
+ }
+ .datos{
+     overflow: hidden;
+ }
+ .col80{
+     width: 80%;
+     float: left;
+ }
+ .col20{
+      width: 20%;
+      float: left;
+ }
