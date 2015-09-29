@@ -10,3 +10,5 @@ $database="m108_blog";
 $link = mysqli_connect($host, $user, $password) or die ("Error en la conexión con el servidor");
 //2-Seleccionar bbdd
 mysqli_select_db($link, $database) or die ("Error en la selección de la base de datos $database");
+
+mysqli_set_charset($link, "utf8");
