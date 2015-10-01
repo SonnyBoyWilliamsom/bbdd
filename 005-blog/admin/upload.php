@@ -82,6 +82,15 @@ if ($_POST) {
         }
     } else {/* si no se ha insertado foto: creamos una ruta estandar para cargar una foto por defecto */
         /*         * ********************************************************************************* */
+          $sql="insert into entradas (titulo,texto,fecha,imagen,id_usuario,visible) values ('$titulo','$texto',NOW(),'upload/default-thumb.gif',$id_usuario,'$visible')";
+        $result=  mysqli_query($link, $sql);
+        if($result){
+            $mng="Entrada guardada";
+            $cssError=1;
+        }else{
+            $mng="Error al guardar la entrada";
+            $cssError=0;
+        }
     }
 } else {
     $c = 'nada_en_post';
