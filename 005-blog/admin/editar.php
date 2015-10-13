@@ -5,7 +5,7 @@
         ?>
 <?php
 
-/*Sentencias para actualizar los nuevos datos introducidos por el usuario. No se puede repetir nombre o email. Primero se modifica y despues se hace la consulta para enseñar los datos. Si hiciesemos la ppeticion de datos antes de modificar (update) los datos que se mostrarán serán los anteriores al comabio*/
+/*Sentencias para actualizar los nuevos datos introducidos por el usuario. No se puede repetir nombre o email. Primero se modifica y después se hace la consulta para enseñar los datos que se hayan modificado. Si hiciesemos la petición de datos antes de modificar (update) los datos que se mostrarán serán los anteriores al cambio*/
 
 if(isset($_POST['userDataForm']) && !empty($_POST['userDataForm'])){
     extract($_POST);
