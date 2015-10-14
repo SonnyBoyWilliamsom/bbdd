@@ -3,7 +3,7 @@
 //Definición de las variables
 $host="localhost";
 $user="root";
-$password="";
+$password="root";
 $database="m108_agenda";
 
 //1-Establecemos conexión

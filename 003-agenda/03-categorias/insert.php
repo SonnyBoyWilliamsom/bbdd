@@ -20,12 +20,14 @@ if( (isset($nombre)&&!empty($nombre)) && (isset($tlfn)&&!empty($tlfn)) ){
         $c=4;
     }else{
         //Insertar contacto
-        $sql="INSERT INTO contactos (nombre,apellidos,telefono,email,foto,id_categoria) VALUES ('$nombre','$apellidos','$tlfn','$email','$foto',$id_categoria)";
+//        if($id_categoria == 0){}
+        $sql="INSERT INTO contactos (nombre,apellidos,telefono,email,foto,id_categoria) VALUES ('$nombre','$apellidos','$tlfn','$email','$foto','$id_categoria')";
         $result = mysqli_query($link, $sql);
         if($result){
             $c=1;
         }else{
             $c=2;
+            
         }
     }
 }else{

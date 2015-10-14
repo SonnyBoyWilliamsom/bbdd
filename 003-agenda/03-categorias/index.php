@@ -10,7 +10,7 @@ if(isset($_GET["c"])){
             $mng="Contacto creado correctamente";
             break;
         case 2:
-            $mng="Error al guardar";
+            $mng="Error al guardar.";
             break;
         case 3:
             $mng="Debes rellenar nombre y teléfono";
@@ -29,6 +29,18 @@ if(isset($_GET["c"])){
             break;
         case 8:
             $mng="Error al modificar contacto";
+            break;
+        case 9:
+            $mng="Categoria añadida correctamente";
+            break;
+        case 10:
+            $mng="Error al introducir la categoria";
+            break;
+        case 11:
+            $mng="Categoria ya existente!";
+            break;
+        case 12:
+            $mng="Introduzca la categoría!";
             break;
     }
 }
@@ -55,24 +67,31 @@ if(isset($_GET["c"])){
                 $sql="select * from categorias order by categoria";
                 $result=mysqli_query($link, $sql);
                 $nfilas=  mysqli_num_rows($result);
-                if($nfilas>0){?>
+                if($nfilas>=0){?>
+                  <option value="0">Sin categoría</option>
                     <?php for($i=0;$i<$nfilas;$i++){ ?>
                         <?php $fila=  mysqli_fetch_array($result) ?>
+                      
                         <option value="<?=$fila['id']?>">
                                 <?=$fila['categoria']?>
                         </option>
+                      
                     <?php } ?>
+                      
                 <?php }else{ ?>
-                    <option value="0">No hay categorías</option>
+<!--                    <option value="0">Sin categoría</option>-->
                 <?php } ?>
             </select>
-            
+           
             <input type="submit" value="Guardar">
         </form>
+     
+            <button class="btn">Añadir Categoría</button>
+            <div id="addCategoria"></div>
         <span><?=$mng?></span>
         
         <hr>
-        
+      
         <h1>Contactos</h1>
         <?php
         //3-Petición Contactos
@@ -96,7 +115,7 @@ if(isset($_GET["c"])){
                             <?=$fila["telefono"]?> | <?=$fila["email"]?>
                             <br>
                             <a href="editar.php?id=<?=$fila['id']?>">Editar</a> | 
-                            <a onclick="if(!confirm('¿?'))return false" href="delete.php?id=<?=$fila['id']?>">Eliminar</a>
+                            <a onclick="if(!confirm('¿Seguro que quieres eliminar contacto?'))return false" href="delete.php?id=<?=$fila['id']?>">Eliminar</a>
                         </p>      
                     </article>
                 <?php } ?>
@@ -110,6 +129,6 @@ if(isset($_GET["c"])){
         
     </center>
         
-        
+      <script src="js/addCategoria.js" type="text/javascript"></script>
     </body>
 </html>

@@ -43,6 +43,7 @@ extract($fila); //$id,$nombre,$apellidos,$telefono,$email,$foto
             <br>
             <input type="text" name="foto" value="<?=$foto?>" placeholder="Foto">
             <br> 
+            
             <select name="idCategoria">
                 <option value="0">Sin categoria</option>
                 <?php
@@ -56,7 +57,7 @@ extract($fila); //$id,$nombre,$apellidos,$telefono,$email,$foto
 
                 <?php }
                 }else{ ?>
-                    <option value="0">No hay categorias</option>
+                    <option value="0">No categoria</option>
                 <?php }
                 ?>
 
