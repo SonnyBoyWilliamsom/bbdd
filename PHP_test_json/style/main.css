@@ -1,0 +1,241 @@
+/*Google-Font*/
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+/*Fontello for order rows icons*/
+@font-face {
+  font-family: 'fontello';
+  src: url('font/fontello.eot');
+  src: url('font/fontello.eot#iefix') format('embedded-opentype'),
+       url('font/fontello.woff') format('woff'),
+       url('font/fontello.ttf') format('truetype'),
+       url('font/fontello.svg#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/*Animation when update message disappears*/
+@keyframes msgOut{
+    0%{opacity: 1;}
+    90%{opacity: 1;}
+    100%{opacity: 0;}
+}
+/*GLOBAL=================*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+    font:1em/1.5 sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+}
+a{
+    text-decoration: none;
+    display: inline-block;
+}
+
+li{
+    list-style: none;
+    display: inline-block;
+}
+input{
+    border:none;
+    font-size: 14px;
+}
+/*Styling arrow icons*/
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  
+}
+.icon-search:before { content: '\e800'; } /* '' */
+.icon-down-open:before { content: '\e801'; } /* '' */
+.icon-up-open:before { content: '\e802'; } /* '' */
+
+/*LOGIN==================*/
+.login{
+    text-align: center;
+}
+.login h1{
+    color: #FC8869;
+    letter-spacing: -3px;
+}
+.Session{
+    background: #FC8869;
+     width: 550px;
+     color: #fff;
+     margin: 0 auto;
+     -webkit-transition: all 0.5s;
+    -webkit-animation: msgOut 2s;
+    -webkit-animation-fill-mode: forwards;
+}
+.login form{
+    background: rgba(67,126,136,.5);
+    width: 550px;
+    height: 300px;
+    text-align: center;
+    line-height: 300px;
+    margin: 0 auto;
+}
+input[name='username']{
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/*HEADER=================*/
+header{
+   background: rgba(67,126,136,.5);
+   position: relative;
+   padding: 10px;
+}
+header h1{
+    letter-spacing: -2px;
+    font-size: 3em;
+    text-align: center;
+}
+header h1 a{
+   color: #FC8869;
+   text-shadow: 0px 0px 2px #000;
+}
+.update{
+    text-align: center;
+} 
+.exit{
+    text-align: right;
+}
+/*Update button style*/
+input[name='update']{
+    background: #F2B735;
+    padding: 15px;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #000;
+    -webkit-transition: all 0.5s;
+}
+input[name='update']:hover{
+    background: #fff;
+    color: #F2B735;
+}
+/*Exit button*/
+.exit{
+ 
+    text-align: right;
+    color: #fff;
+}
+input[name='exit']{
+    background: #cdcdcd;
+    padding: 5px 10px;
+    color: #000;
+    cursor: pointer;
+    outline: none;
+    border-radius: none;
+    -webkit-transition: all 0.5s;
+}
+input[name='exit']:hover{
+    background: #fff;
+    color: #28889A;
+}
+/*Save Order of tables rows*/
+.keepOrder{
+    margin-top: 15px;
+    background: #FC8869;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #000;
+}
+.keepOrder:hover{
+     background: #fff;
+    color: #FC8869;
+}
+/*TABLE=================*/
+.tableWrap{
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+}
+.Rates{
+    background: rgba(255,153,51,1);
+    opacity: 1;
+    height:45px;
+    line-height: 45px;
+    width: 100%;
+    position: absolute;
+    top:-46px;
+    font-size: 25px;
+    color:  #fff;
+    text-align: center;
+    border-left: 15px solid #437E88;
+    border-right: 15px solid #437E88;
+    border-radius: 3px;
+    box-shadow: 0px 5px 50px #000;
+    -webkit-transition: all 0.5s;
+    -webkit-animation: msgOut 2s;
+    -webkit-animation-fill-mode: forwards;
+    
+}
+
+.infoUpdate{
+    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+th, tr, td{
+     -webkit-transition: all 0.5s;
+     border-radius: 3px;
+}
+
+.infoUpdate tr:nth-child(2n){
+    background: rgba(242,183,53,.4);
+}
+
+th{
+   background: rgba(67,126,136,.4);
+   cursor: pointer;
+   color:  rgba(67,126,136,1);
+}
+td{
+    color: rgba(67,126,136,1);
+    padding: 3px;
+}
+.down{
+    background: #FC8869;
+}
+.up{
+    background: #ccffcc;
+}
+.upolski td:not(:last-child){
+    background: #68979F;
+    color:  #fff;   
+    padding: 10px;
+}
+
+
+/*MEDIA-QUERY*/
+
+
+@media(max-width: 720px){
+    .infoUpdate td:nth-child(1), .infoUpdate td:nth-child(4), .infoUpdate th:nth-child(1), .infoUpdate th:nth-child(4){
+        display: none;
+    }
+}
