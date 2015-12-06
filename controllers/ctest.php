@@ -1,33 +1,40 @@
 <?php
 
-include './data.php';
+include '../model/data.php';
 if (isset($_GET['c']) && !empty($_GET['c'])) {
     $curso_error = true;
     $unit_error = true;
     $respuestas_error = true;
     $elements = explode('#', $_GET['c']);
-    $nombre_curso = $elements[0];
-    $unidad_curso = $elements[1];
     $questions = array();
     $answers = array();
-    //curso 1, unidad 1
+    
+ 
     for ($i = 0; $i < count($unidades); $i++) {
-      
         if ($unidades[$i]['id_curso'] == $_GET['idc']) {
+            $unis[0] =$unidades[$i];
             $curso_error = false;
+            $counter_q = 0;
+            $counter_a = 0;
             for ($a = 0; $a < count($preguntas); $a++) {
+                
                 if ($preguntas[$a]['id_unidad'] == $_GET['idu']) {
-                    $questions [$a] = $preguntas[$a];
+                        
+                    $questions[$counter_q++] = $preguntas[$a];
                     $unit_error = false;
-                    for ($b = 0; $b < count($respuestas); $b++) {
-//                        echo 'r'.$respuestas[$b]['id_pregunta'].'-';
-//                        echo 'q'.$questions[$a]['id_pregunta'];
-                        if($respuestas[$b]['id_pregunta'] == $questions[$a]['id_pregunta']){
-                             $answers[$b] = $respuestas[$b];
-                             $respuestas_error = false;
+                    
+                    for($b = 0; $b < count($respuestas); $b++){
+                        
+                        if($respuestas[$b]['id_pregunta'] == $questions[$counter_q-1]['id_pregunta']){
+                             echo '<br>id_pregunta_questions'.$questions[$counter_q-1]['id_pregunta'];
+                        echo '<br>id_pregunta_respuestas'.$respuestas[$b]['id_pregunta'];
+                            
+                            echo '<br>counterr'.$counter_a;
+                            $answers[$counter_a++] = $respuestas[$b];
                         }
                     }
                 }
+              
             }
             break;
         }
@@ -35,7 +42,7 @@ if (isset($_GET['c']) && !empty($_GET['c'])) {
     echo 'c='.$curso_error.'; u='.$unit_error.'; r='.$respuestas_error;
     
 
-    include './cuestionarie.php';
+    include '../views/cuestionarie.php';
    
 }
 /*Antes de poder imprimir el test por pantalla se deben obtener tan solo las preguntas y respuestas correspondientes al código que muestra el curso y la unidad en la que se va a trabajar. Una vez obtenidos solo los datos con los que se va a trabajar se llamara a la vista del cuestionario.

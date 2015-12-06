@@ -25,7 +25,7 @@ $unidades = array(
             array('id_unidad'=>'13', 'id_curso'=>'2','nombre'=>'U3-FF'),
         );
 $preguntas = array( 
-                array('id_pregunta'=>'12', 'id_unidad'=>'1','numero'=>'1','pregunta'=>'Suponiendo que esta sea la pregunta uno de una unidad que pertenece a un curso, definir como se relacionaría la misma con su curso y unidad correspondiente'),
+                array('id_pregunta'=>'50', 'id_unidad'=>'11','numero'=>'1','pregunta'=>'Suponiendo que esta sea la pregunta uno de una unidad que pertenece a un curso, definir como se relacionaría la misma con su curso y unidad correspondiente'),
                 array('id_pregunta'=>'23', 'id_unidad'=>'1','numero'=>'2','pregunta'=>'Suponiendo que esta sea la pregunta 2 de una unidad que pertenece a un curso, definir como se relacionaría la misma con su curso y unidad correspondiente'),
                 array('id_pregunta'=>'36', 'id_unidad'=>'1','numero'=>'3','pregunta'=>'Suponiendo que esta sea la pregunta 3 de una unidad que pertenece a un curso, definir como se relacionaría la misma con su curso y unidad correspondiente'),
                 array('id_pregunta'=>'44', 'id_unidad'=>'1','numero'=>'4','pregunta'=>'Suponiendo que esta sea la pregunta 4 de una unidad que pertenece a un curso, definir como se relacionaría la misma con su curso y unidad correspondiente'),
@@ -35,7 +35,7 @@ $preguntas = array(
                 array('id_pregunta'=>'34', 'id_unidad'=>'1','numero'=>'8','pregunta'=>'Suponiendo que esta sea la pregunta 8 de una unidad que pertenece a un curso, definir como se relacionaría la misma con su curso y unidad correspondiente'),
                 array('id_pregunta'=>'11', 'id_unidad'=>'1','numero'=>'9','pregunta'=>'Suponiendo que esta sea la pregunta 9 de una unidad que pertenece a un curso, definir como se relacionaría la misma con su curso y unidad correspondiente'),
                 array('id_pregunta'=>'45', 'id_unidad'=>'1','numero'=>'10','pregunta'=>'Suponiendo que esta sea la pregunta 10 de una unidad que pertenece a un curso, definir como se relacionaría la misma con su curso y unidad correspondiente'),
-                array('id_pregunta'=>'50', 'id_unidad'=>'1','numero'=>'11','pregunta'=>'Pregunta uno de la unidad uno del curso 2 -MDA de mentira'),
+                array('id_pregunta'=>'12', 'id_unidad'=>'1','numero'=>'1','pregunta'=>'Pregunta uno de la unidad uno del curso 2 -MDA de mentira'),
                 array('id_pregunta'=>'51', 'id_unidad'=>'11','numero'=>'2','pregunta'=>'pregunta dos de la unidad uno del curso 2 - MDA'),
                 array('id_pregunta'=>'52', 'id_unidad'=>'11','numero'=>'3','pregunta'=>'pregunta tres de la unidad uno del curso 2 - MDA'),
                 array('id_pregunta'=>'53', 'id_unidad'=>'11','numero'=>'4','pregunta'=>'pregunta cuatro de la unidad uno del curso 2 - MDA'),
@@ -45,8 +45,8 @@ $preguntas = array(
     
             );
 $respuestas = array(
-                            array('id_respuesta'=>'1', 'id_pregunta'=>'12', 'opcion'=>'a', 'descripcion'=>'Suponiendo que una unidad que pertenece a un curso, definir como se relacionaría la misma con su curso y unidad correspondiente'),
-                            array('id_respuesta'=>'2', 'id_pregunta'=>'12', 'opcion'=>'b','descripcion'=>' Que esta 999sea la pregunta uno de una unidad que pertenece a un curso, definir como se relacionaría la misma con su cuiente'),
+                            array('id_respuesta'=>'1', 'id_pregunta'=>'50', 'opcion'=>'a', 'descripcion'=>'Suponiendo que una unidad que pertenece a un curso, definir como se relacionaría la misma con su curso y unidad correspondiente'),
+                            array('id_respuesta'=>'2', 'id_pregunta'=>'50', 'opcion'=>'b','descripcion'=>' Que esta 999sea la pregunta uno de una unidad que pertenece a un curso, definir como se relacionaría la misma con su cuiente'),
                             array('id_respuesta'=>'3', 'id_pregunta'=>'23', 'opcion'=>'a','descripcion'=>'Supde 6668 unidad que pertenece a un curso, definir como se relacionaría la misma con su curso y unidad correspondiente'),
                             array('id_respuesta'=>'4', 'id_pregunta'=>'23', 'opcion'=>'b','descripcion'=>'Unidad 66correspondiente'),
                             array('id_respuesta'=>'5', 'id_pregunta'=>'44', 'opcion'=>'a','descripcion'=>'La mis555ma con su curso y unidad correspondiente'),
@@ -99,3 +99,5 @@ $alumnos = array(
                 array('id'=>'3', 'id_curso'=>'8', 'nombre'=>'Gonzalo  Rubalcaba'),
                 array('id'=>'4', 'id_curso'=>'3', 'nombre'=>'Maite Hontele')
 );
+    
+                    
